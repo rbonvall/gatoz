@@ -3,6 +3,8 @@ import Combinable.ops._
 
 package object instances {
 
+  /* Combinables */
+
   val unitUnitCombinable: Combinable[Unit] =
     Combinable whoseCombineFunctionIs { (_, _) => () }
 
@@ -39,5 +41,17 @@ package object instances {
     Combinable whoseCombineFunctionIs { (m1, m2) =>
       ???
     }
+
+  /* Combinables from nothing */
+
+  def numericAddCombinableFromNothing[N: Numeric]: Combinable[N] = {
+    implicit val ev: Combinable[N] = numericAddCombinable[N]
+    CombinableFromNothing whoseDefaultValueIs implicitly[Numeric[N]].zero
+  }
+
+  def numericMulCombinableFromNothing[N: Numeric]: Combinable[N] = {
+    implicit val ev: Combinable[N] = numericMulCombinable[N]
+    CombinableFromNothing whoseDefaultValueIs implicitly[Numeric[N]].fromInt(1)
+  }
 
 }

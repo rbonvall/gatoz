@@ -2,6 +2,8 @@ package cl.mez.gatoz
 import Combinable.ops._
 
 package object instances {
+  /** Get the numeric instance for N. */
+  private def num[N](implicit instance: Numeric[N]): Numeric[N] = instance
 
   /* Combinables */
 
@@ -15,16 +17,16 @@ package object instances {
     Combinable whoseCombineFunctionIs { _ || _ }
 
   def numericAddCombinable[N: Numeric]: Combinable[N] =
-    Combinable whoseCombineFunctionIs implicitly[Numeric[N]].plus
+    Combinable whoseCombineFunctionIs num[N].plus
 
   def numericMulCombinable[N: Numeric]: Combinable[N] =
-    Combinable whoseCombineFunctionIs implicitly[Numeric[N]].times
+    Combinable whoseCombineFunctionIs num[N].times
 
   def orderingMaxCombinable[T: Ordering]: Combinable[T] =
-    Combinable whoseCombineFunctionIs implicitly[Ordering[T]].max
+    Combinable whoseCombineFunctionIs Ordering[T].max
 
   def orderingMinCombinable[T: Ordering]: Combinable[T] =
-    Combinable whoseCombineFunctionIs implicitly[Ordering[T]].min
+    Combinable whoseCombineFunctionIs Ordering[T].min
 
   def seqConcatCombinable[T]: Combinable[Seq[T]] =
     Combinable whoseCombineFunctionIs { _ ++ _ }
@@ -46,12 +48,12 @@ package object instances {
 
   def numericAddCombinableFromNothing[N: Numeric]: Combinable[N] = {
     implicit val ev: Combinable[N] = numericAddCombinable[N]
-    CombinableFromNothing whoseDefaultValueIs implicitly[Numeric[N]].zero
+    CombinableFromNothing whoseDefaultValueIs num[N].zero
   }
 
   def numericMulCombinableFromNothing[N: Numeric]: Combinable[N] = {
     implicit val ev: Combinable[N] = numericMulCombinable[N]
-    CombinableFromNothing whoseDefaultValueIs implicitly[Numeric[N]].fromInt(1)
+    CombinableFromNothing whoseDefaultValueIs num[N].one
   }
 
 }

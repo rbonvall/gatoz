@@ -15,4 +15,4 @@ addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.fu
 
 wartremoverErrors ++= Warts.unsafe
 Compile / console / scalacOptions :=
-  (console / scalacOptions).value.filterNot(_ contains("wartremover"))
+  (console / scalacOptions).value.filterNot(_ contains "wartremover")

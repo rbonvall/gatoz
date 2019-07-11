@@ -41,7 +41,15 @@ package object evidence {
 
   def mapsWithCombinableValuesAreCombinableByMergingAndCombining[T, U: Combinable]: Combinable[Map[T, U]] =
     Combinable whoseCombineFunctionIs { (m1, m2) =>
-      ???
+      (m1.keySet union m2.keySet)
+        .map { key =>
+          val newValue =
+            if (m1.contains(key) && m2.contains(key)) m1(key) |+| m2(key)
+            else if (m1.contains(key))                m1(key)
+            else                                      m2(key)
+          key -> newValue
+        }
+        .toMap
     }
 
   /* Combinables from nothing */

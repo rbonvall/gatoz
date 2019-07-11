@@ -1,7 +1,7 @@
 package cl.mez.gatoz
 import Combinable.ops._
 
-package object instances {
+package object evidence {
   /** Get the numeric instance for N. */
   private def num[N](implicit instance: Numeric[N]): Numeric[N] = instance
 
@@ -10,28 +10,28 @@ package object instances {
   val unitUnitCombinable: Combinable[Unit] =
     Combinable whoseCombineFunctionIs { (_, _) => () }
 
-  val boolAndCombinable: Combinable[Boolean] =
+  val boolIsCombinableWithAnd: Combinable[Boolean] =
     Combinable whoseCombineFunctionIs { _ && _ }
 
-  val boolOrCombinable: Combinable[Boolean] =
+  val boolIsCombinableWithOr: Combinable[Boolean] =
     Combinable whoseCombineFunctionIs { _ || _ }
 
-  def numericAddCombinable[N: Numeric]: Combinable[N] =
+  def numbersAreCombinableWithPlus[N: Numeric]: Combinable[N] =
     Combinable whoseCombineFunctionIs num[N].plus
 
-  def numericMulCombinable[N: Numeric]: Combinable[N] =
+  def numbersAreCombinableWithTimes[N: Numeric]: Combinable[N] =
     Combinable whoseCombineFunctionIs num[N].times
 
-  def orderingMaxCombinable[T: Ordering]: Combinable[T] =
+  def orderedsAreCombinableWithMax[T: Ordering]: Combinable[T] =
     Combinable whoseCombineFunctionIs Ordering[T].max
 
-  def orderingMinCombinable[T: Ordering]: Combinable[T] =
+  def orderedsAreCombinableWithMin[T: Ordering]: Combinable[T] =
     Combinable whoseCombineFunctionIs Ordering[T].min
 
-  def seqConcatCombinable[T]: Combinable[Seq[T]] =
+  def sequencesAreCombinableWithConcatenation[T]: Combinable[Seq[T]] =
     Combinable whoseCombineFunctionIs { _ ++ _ }
 
-  def optionCombinable[T: Combinable]: Combinable[Option[T]] =
+  def optionsOfCombinablesAreCombinable[T: Combinable]: Combinable[Option[T]] =
     Combinable whoseCombineFunctionIs {
       case (Some(x), Some(y)) => Some(x |+| y)
       case (Some(x), None)    => Some(x)
@@ -39,20 +39,20 @@ package object instances {
       case (None,    None)    => None
     }
 
-  def mapMergeCombinable[T, U: Combinable]: Combinable[Map[T, U]] =
+  def mapsWithCombinableValuesAreCombinableByMergingAndCombining[T, U: Combinable]: Combinable[Map[T, U]] =
     Combinable whoseCombineFunctionIs { (m1, m2) =>
       ???
     }
 
   /* Combinables from nothing */
 
-  def numericAddCombinableFromNothing[N: Numeric]: Combinable[N] = {
-    implicit val ev: Combinable[N] = numericAddCombinable[N]
+  def numbersAreCombinableFromNothingWithPlusAndZero[N: Numeric]: Combinable[N] = {
+    implicit val ev: Combinable[N] = numbersAreCombinableWithPlus[N]
     CombinableFromNothing whoseDefaultValueIs num[N].zero
   }
 
-  def numericMulCombinableFromNothing[N: Numeric]: Combinable[N] = {
-    implicit val ev: Combinable[N] = numericMulCombinable[N]
+  def numbersAreCombinableFromNothingWithTimesAndOne[N: Numeric]: Combinable[N] = {
+    implicit val ev: Combinable[N] = numbersAreCombinableWithTimes[N]
     CombinableFromNothing whoseDefaultValueIs num[N].one
   }
 

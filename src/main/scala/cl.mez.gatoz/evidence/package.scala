@@ -54,12 +54,12 @@ package object evidence {
 
   /* Combinables from nothing */
 
-  def numbersAreCombinableFromNothingWithPlusAndZero[N: Numeric]: Combinable[N] = {
+  def numbersAreCombinableFromNothingWithPlusAndZero[N: Numeric]: CombinableFromNothing[N] = {
     implicit val ev: Combinable[N] = numbersAreCombinableWithPlus[N]
     CombinableFromNothing whoseDefaultValueIs num[N].zero
   }
 
-  def numbersAreCombinableFromNothingWithTimesAndOne[N: Numeric]: Combinable[N] = {
+  def numbersAreCombinableFromNothingWithTimesAndOne[N: Numeric]: CombinableFromNothing[N] = {
     implicit val ev: Combinable[N] = numbersAreCombinableWithTimes[N]
     CombinableFromNothing whoseDefaultValueIs num[N].one
   }

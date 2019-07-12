@@ -64,4 +64,22 @@ package object evidence {
     CombinableFromNothing whoseDefaultValueIs num[N].one
   }
 
+
+  /* Producers */
+
+  def functionIsProducer[T]: Producer[Function[T, ?]] =
+    new Producer[Function[T, ?]] {
+      def post[Out, A](producer: Function[T, Out], f: Out => A): Function[T, A] =
+        t => f(producer(t))
+    }
+
+
+  /* Consumers */
+
+  def functionIsConsumer[T]: Consumer[Function[?, T]] =
+    new Consumer[Function[?, T]] {
+      def pre[B, In](consumer: Function[In, T], f: B => In): Function[B, T] =
+        t => consumer(f(t))
+    }
+
 }

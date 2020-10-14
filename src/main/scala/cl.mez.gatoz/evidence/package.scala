@@ -8,31 +8,31 @@ package object evidence {
   /* Combinables */
 
   val unitUnitCombinable: Combinable[Unit] =
-    Combinable whoseCombineFunctionIs { (_, _) => () }
+    Combinable from { (_, _) => () }
 
   val boolIsCombinableWithAnd: Combinable[Boolean] =
-    Combinable whoseCombineFunctionIs { _ && _ }
+    Combinable from { _ && _ }
 
   val boolIsCombinableWithOr: Combinable[Boolean] =
-    Combinable whoseCombineFunctionIs { _ || _ }
+    Combinable from { _ || _ }
 
   def numbersAreCombinableWithPlus[N: Numeric]: Combinable[N] =
-    Combinable whoseCombineFunctionIs num[N].plus
+    Combinable from num[N].plus
 
   def numbersAreCombinableWithTimes[N: Numeric]: Combinable[N] =
-    Combinable whoseCombineFunctionIs num[N].times
+    Combinable from num[N].times
 
   def orderedsAreCombinableWithMax[T: Ordering]: Combinable[T] =
-    Combinable whoseCombineFunctionIs Ordering[T].max
+    Combinable from Ordering[T].max
 
   def orderedsAreCombinableWithMin[T: Ordering]: Combinable[T] =
-    Combinable whoseCombineFunctionIs Ordering[T].min
+    Combinable from Ordering[T].min
 
   def sequencesAreCombinableWithConcatenation[T]: Combinable[Seq[T]] =
-    Combinable whoseCombineFunctionIs { _ ++ _ }
+    Combinable from { _ ++ _ }
 
   def optionsOfCombinablesAreCombinable[T: Combinable]: Combinable[Option[T]] =
-    Combinable whoseCombineFunctionIs {
+    Combinable from {
       case (Some(x), Some(y)) => Some(x |+| y)
       case (Some(x), None)    => Some(x)
       case (None,    Some(y)) => Some(y)
@@ -40,7 +40,7 @@ package object evidence {
     }
 
   def mapsWithCombinableValuesAreCombinableByMergingAndCombining[T, U: Combinable]: Combinable[Map[T, U]] =
-    Combinable whoseCombineFunctionIs { (m1, m2) =>
+    Combinable from { (m1, m2) =>
       (m1.keySet union m2.keySet)
         .map { key =>
           val newValue =
@@ -55,13 +55,11 @@ package object evidence {
   /* Combinables from nothing */
 
   def numbersAreCombinableFromNothingWithPlusAndZero[N: Numeric]: CombinableFromNothing[N] = {
-    implicit val ev: Combinable[N] = numbersAreCombinableWithPlus[N]
-    CombinableFromNothing whoseDefaultValueIs num[N].zero
+    CombinableFromNothing.from(num[N].zero)(numbersAreCombinableWithPlus[N].combine)
   }
 
   def numbersAreCombinableFromNothingWithTimesAndOne[N: Numeric]: CombinableFromNothing[N] = {
-    implicit val ev: Combinable[N] = numbersAreCombinableWithTimes[N]
-    CombinableFromNothing whoseDefaultValueIs num[N].one
+    CombinableFromNothing.from(num[N].one)(numbersAreCombinableWithTimes[N].combine)
   }
 
 

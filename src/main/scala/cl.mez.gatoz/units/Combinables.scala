@@ -2,7 +2,7 @@ package cl.mez.gatoz.units
 
 object Combinables {
 
-  def allAssociativeOperators = BinaryOperator.all.filter(
+  def allAssociativeOperators = UnitBinaryOperator.all.filter(
     _.isAssociative(Units)
   )
 

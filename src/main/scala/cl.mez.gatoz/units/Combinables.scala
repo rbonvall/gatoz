@@ -1,4 +1,6 @@
-package cl.mez.gatoz.units
+package cl.mez.gatoz
+package units
+
 
 object Combinables {
 

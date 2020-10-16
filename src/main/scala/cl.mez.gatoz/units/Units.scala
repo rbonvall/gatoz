@@ -1,6 +1,5 @@
-package cl.mez.gatoz.units
-
-import cl.mez.gatoz.AllValues
+package cl.mez.gatoz
+package units
 
 
 object Units extends AllValues[Unit] {

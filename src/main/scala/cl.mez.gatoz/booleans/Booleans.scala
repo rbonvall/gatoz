@@ -1,6 +1,6 @@
-package cl.mez.gatoz.booleans
+package cl.mez.gatoz
+package booleans
 
-import cl.mez.gatoz.AllValues
 
 object Booleans extends AllValues[Boolean] {
   val all = List(false, true)

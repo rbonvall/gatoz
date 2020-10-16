@@ -1,6 +1,6 @@
-package cl.mez.gatoz.booleans
+package cl.mez.gatoz
+package booleans
 
-import cl.mez.gatoz.UnaryOperator
 
 case class BooleanUnaryOperator(f: Boolean, t: Boolean) extends UnaryOperator[Boolean] {
   def apply(p: Boolean): Boolean = if (p) t else f

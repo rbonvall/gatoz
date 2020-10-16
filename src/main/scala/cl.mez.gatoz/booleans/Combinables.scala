@@ -1,4 +1,6 @@
-package cl.mez.gatoz.booleans
+package cl.mez.gatoz
+package booleans
+
 
 object Combinables {
 

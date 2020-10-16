@@ -1,6 +1,6 @@
-package cl.mez.gatoz.booleans
+package cl.mez.gatoz
+package booleans
 
-import cl.mez.gatoz.BinaryOperator
 
 case class BooleanBinaryOperator( ff: Boolean
                                 , ft: Boolean

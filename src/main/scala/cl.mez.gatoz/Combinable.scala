@@ -14,7 +14,7 @@ object Combinable {
     def combine(x: T, y: T): T = f(x, y)
   }
 
-  def forType[T: Combinable] = implicitly[Combinable[T]]
+  def of[T: Combinable] = implicitly[Combinable[T]]
 
 }
 

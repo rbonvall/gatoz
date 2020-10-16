@@ -1,6 +1,8 @@
 package cl.mez.gatoz.units
 
-case class UnitUnaryOperator() {
+import cl.mez.gatoz.UnaryOperator
+
+case class UnitUnaryOperator() extends UnaryOperator[Unit] {
   def apply(u: Unit): Unit = u
 }
 

@@ -1,6 +1,6 @@
 package cl.mez.gatoz.units
 
-case class BinaryOperator() {
+case class BinaryOperator() extends cl.mez.gatoz.BinaryOperator[Unit] {
   def apply(u: Unit, v: Unit): Unit = ()
 }
 

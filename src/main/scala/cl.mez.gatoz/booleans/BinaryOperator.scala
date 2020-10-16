@@ -4,7 +4,7 @@ case class BinaryOperator( ff: Boolean
                          , ft: Boolean
                          , tf: Boolean
                          , tt: Boolean
-                         ) {
+                         ) extends cl.mez.gatoz.BinaryOperator[Boolean] {
 
   def apply(p: Boolean, q: Boolean): Boolean = {
     if      (p && q) tt

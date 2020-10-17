@@ -1,4 +1,4 @@
-scalaVersion := "2.12.8"
+scalaVersion := "2.13.3"
 
 libraryDependencies ++= Seq(
   "org.scalatest"              %% "scalatest"     % "3.0.8"  % "test"
@@ -11,7 +11,8 @@ libraryDependencies ++= Seq(
 
 resolvers += Resolver.sonatypeRepo("releases")
 addCompilerPlugin("org.typelevel"  %% "kind-projector" % "0.10.3")
-addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full)
+
+scalacOptions += "-Ymacro-annotations"
 
 wartremoverErrors ++= Warts.unsafe
 Compile / console / scalacOptions :=

@@ -1,6 +1,6 @@
 package cl.mez.gatoz
 
-trait BinaryOperator[T] {
+trait BinaryOperator[T] extends ((T, T) => T) {
   def apply(a: T, b: T): T
 
   def isAssociative(implicit ts: AllValues[T]): Boolean = {

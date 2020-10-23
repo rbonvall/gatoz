@@ -7,7 +7,7 @@ case class UnitUnaryOperator() extends UnaryOperator[Unit] {
 }
 
 
-object UnitUnaryOperator {
+object UnitUnaryOperator extends AllValues[UnitUnaryOperator] {
 
   val only = UnitUnaryOperator()
   def all = List(only)

@@ -2,7 +2,7 @@ package cl.mez.gatoz
 package booleans
 
 
-object Combinables {
+object BooleanCombinables {
 
   def allAssociativeOperators = BooleanBinaryOperator.all.filter(
     _.isAssociative(Booleans)

@@ -17,7 +17,7 @@ case class BooleanBinaryOperator( ff: Boolean
 
 }
 
-object BooleanBinaryOperator {
+object BooleanBinaryOperator extends AllValues[BooleanBinaryOperator] {
 
   //                             F x F  F x T  T x F  T x T
   val f0 = BooleanBinaryOperator(false, false, false, false)

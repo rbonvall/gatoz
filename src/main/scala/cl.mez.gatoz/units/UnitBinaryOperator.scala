@@ -6,7 +6,7 @@ case class UnitBinaryOperator() extends BinaryOperator[Unit] {
   def apply(u: Unit, v: Unit): Unit = ()
 }
 
-object UnitBinaryOperator {
+object UnitBinaryOperator extends AllValues[UnitBinaryOperator] {
 
   def only = UnitBinaryOperator()
   def all = List(only)

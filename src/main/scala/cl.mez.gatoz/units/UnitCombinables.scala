@@ -2,7 +2,10 @@ package cl.mez.gatoz
 package units
 
 
-object UnitCombinables {
+object UnitCombinables extends AllValues[Combinable[Unit]] {
+
+  val only: Combinable[Unit] = Combinable.from { (_, _) => () }
+  val all: Seq[Combinable[Unit]] = List(only)
 
   def allAssociativeOperators = UnitBinaryOperator.all.filter(
     _.isAssociative(Units)

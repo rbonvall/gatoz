@@ -1,7 +1,9 @@
 scalaVersion := "2.13.3"
 
 libraryDependencies ++= Seq(
-  "org.scalatest"              %% "scalatest"         % "3.2.0"  % Test
+  "org.scalatest"              %% "scalatest"                   % "3.2.0"  % Test
+, "org.scalatest"              %% "scalatest-funsuite"          % "3.2.0"  % Test
+, "org.scalatest"              %% "scalatest-shouldmatchers"    % "3.2.0"  % Test
 , "org.typelevel"              %% "simulacrum"        % "1.0.0"
 )
 

@@ -7,7 +7,6 @@ libraryDependencies ++= Seq(
 , "org.typelevel"              %% "simulacrum"        % "1.0.0"
 )
 
-resolvers += Resolver.sonatypeRepo("releases")
 addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.11.0" cross CrossVersion.full)
 
 scalacOptions += "-Ymacro-annotations"

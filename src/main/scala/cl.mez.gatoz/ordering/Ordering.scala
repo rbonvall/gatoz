@@ -9,5 +9,5 @@ case object Ascending  extends Ordering
 
 
 object Ordering extends AllValues[Ordering] {
-  val all = List(Descending, Equal, Ascending)
+  val all = Set(Descending, Equal, Ascending)
 }

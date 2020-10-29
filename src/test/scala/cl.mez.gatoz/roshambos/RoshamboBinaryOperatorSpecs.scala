@@ -8,7 +8,7 @@ class RoshamboBinaryOperatorSpecs extends GatozTest {
   describe("RoshamboBinaryOperator") {
 
     it("has 19683 distinct operators") {
-      RoshamboBinaryOperator.all.length shouldEqual 19683
+      RoshamboBinaryOperator.all.size shouldEqual 19683
     }
 
     it("has 113 distinct associative operators") {

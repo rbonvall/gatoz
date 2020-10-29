@@ -11,7 +11,7 @@ class BooleanCombinablesSpecs extends GatozTest {
       BooleanBinaryOperator.all.foreach { f =>
         println(s"${f.toString} ${f.isAssociative(Booleans).toString}")
       }
-      BooleanBinaryOperator.all.filter( _.isAssociative(Booleans)).length shouldEqual 8
+      BooleanBinaryOperator.all.filter( _.isAssociative(Booleans)).size shouldEqual 8
     }
 
   }

@@ -12,7 +12,7 @@ case class RoshamboUnaryOperator(r: Roshambo, p: Roshambo, s: Roshambo) extends 
 
 object RoshamboUnaryOperator extends AllValues[RoshamboUnaryOperator] {
 
-  def all: LazyList[RoshamboUnaryOperator] =
+  def all: Set[RoshamboUnaryOperator] =
     for {
       fr <- Roshambo.all
       fp <- Roshambo.all

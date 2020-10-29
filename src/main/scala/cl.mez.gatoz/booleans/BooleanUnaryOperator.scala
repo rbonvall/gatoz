@@ -20,7 +20,7 @@ object BooleanUnaryOperator {
   val not       = f2
   val optimist  = f3
 
-  def all = List(f0, f1, f2, f3)
+  def all = Set(f0, f1, f2, f3)
 
   def fromFunction(func: Boolean => Boolean) =
     BooleanUnaryOperator(f = func(false), t = func(true))

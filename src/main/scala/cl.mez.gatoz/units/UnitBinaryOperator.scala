@@ -9,6 +9,6 @@ case class UnitBinaryOperator() extends BinaryOperator[Unit] {
 object UnitBinaryOperator extends AllValues[UnitBinaryOperator] {
 
   def only = UnitBinaryOperator()
-  def all = List(only)
+  def all = Set(only)
 
 }

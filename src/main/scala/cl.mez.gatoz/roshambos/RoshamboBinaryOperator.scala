@@ -23,7 +23,7 @@ case class RoshamboBinaryOperator( rr: Roshambo, rp: Roshambo, rs: Roshambo
 
 object RoshamboBinaryOperator extends AllValues[RoshamboBinaryOperator] {
   // There are 19683 of these bad boys.
-  val all: LazyList[RoshamboBinaryOperator] =
+  lazy val all: Set[RoshamboBinaryOperator] =
     for {
       r1 <- Roshambo.all
       r2 <- Roshambo.all

@@ -2,7 +2,7 @@ package cl.mez.gatoz
 
 trait AllValues[T] {
 
-  def all: Seq[T]
+  def all: Set[T]
 
   def allPairs = for {
     p <- all

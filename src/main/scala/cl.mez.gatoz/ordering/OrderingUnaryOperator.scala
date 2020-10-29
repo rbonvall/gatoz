@@ -51,7 +51,7 @@ object OrderingUnaryOperator {
   val fAAE = OrderingUnaryOperator(A, A, E)
   val fAAA = OrderingUnaryOperator(A, A, A)
 
-  def all = List[OrderingUnaryOperator](
+  def all = Set[OrderingUnaryOperator](
     fDDD, fDDE, fDDA,
     fDED, fDEE, fDEA,
     fDAD, fDAE, fDAA,

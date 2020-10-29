@@ -3,6 +3,6 @@ package units
 
 
 object Units extends AllValues[Unit] {
-  def all = List(())
+  def all = Set(())
 }
 

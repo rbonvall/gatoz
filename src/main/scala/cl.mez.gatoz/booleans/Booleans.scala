@@ -3,6 +3,6 @@ package booleans
 
 
 object Booleans extends AllValues[Boolean] {
-  val all = List(false, true)
+  val all = Set(false, true)
 }
 

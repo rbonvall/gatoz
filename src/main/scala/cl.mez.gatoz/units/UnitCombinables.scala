@@ -5,7 +5,7 @@ package units
 object UnitCombinables extends AllValues[Combinable[Unit]] {
 
   val only: Combinable[Unit] = Combinable.from { (_, _) => () }
-  val all: Seq[Combinable[Unit]] = List(only)
+  val all: Set[Combinable[Unit]] = Set(only)
 
   def allAssociativeOperators = UnitBinaryOperator.all.filter(
     _.isAssociative(Units)

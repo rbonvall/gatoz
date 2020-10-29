@@ -54,10 +54,10 @@ object BooleanBinaryOperator extends AllValues[BooleanBinaryOperator] {
   val nand       = fE
   val optimist   = fF
 
-  def all = List(f0, f1, f2, f3,
-                 f4, f5, f6, f7,
-                 f8, f9, fA, fB,
-                 fC, fD, fE, fF)
+  def all = Set(f0, f1, f2, f3,
+                f4, f5, f6, f7,
+                f8, f9, fA, fB,
+                fC, fD, fE, fF)
 
   def fromFunction(f: (Boolean, Boolean) => Boolean) =
     BooleanBinaryOperator( ff = f(false, false)

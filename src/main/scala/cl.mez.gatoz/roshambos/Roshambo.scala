@@ -9,6 +9,6 @@ case object Paper    extends Roshambo
 case object Scissors extends Roshambo
 
 object Roshambo extends AllValues[Roshambo] {
-  val all = LazyList(Rock, Paper, Scissors)
+  val all = Set(Rock, Paper, Scissors)
 }
 

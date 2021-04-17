@@ -1,10 +1,6 @@
 package cl.mez.gatoz
 
-import simulacrum._
-
-@typeclass
 trait CombinableFromNothing[T] extends Combinable[T] {
-  @op("∅")
   def default: T
 }
 

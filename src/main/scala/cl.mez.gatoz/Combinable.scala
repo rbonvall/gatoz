@@ -1,10 +1,6 @@
 package cl.mez.gatoz
 
-import simulacrum._
-
-@typeclass
 trait Combinable[T] {
-  @op("|+|")
   def combine(x: T, y: T): T
 }
 
@@ -15,6 +11,12 @@ object Combinable {
   }
 
   def of[T: Combinable] = implicitly[Combinable[T]]
+
+  object ops {
+    implicit class CombinableOps[T: Combinable](val x: T) {
+      def |+|(y: T) = Combinable.of[T].combine(x, y)
+    }
+  }
 
 }
 

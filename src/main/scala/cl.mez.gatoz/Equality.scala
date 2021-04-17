@@ -1,13 +1,8 @@
 package cl.mez.gatoz
 
-import simulacrum._
-
-@typeclass
 trait Equality[T] {
 
-  @op("===")
   def eq (a: T, b: T): Boolean
-  @op("=/=")
   def neq(a: T, b: T): Boolean = !eq(a, b)
 
 }

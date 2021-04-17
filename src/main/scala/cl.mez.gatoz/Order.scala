@@ -1,11 +1,8 @@
 package cl.mez.gatoz
 
 import ordering.Ordering
-import simulacrum._
 
-@typeclass
 trait Order[T] {
-  @op("<?>")
   def compare(a: T, b: T): Ordering
 }
 

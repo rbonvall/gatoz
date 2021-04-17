@@ -9,7 +9,3 @@ addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.11.0" cross CrossVers
 scalacOptions += "-Ymacro-annotations"
 
 testFrameworks += new TestFramework("munit.Framework")
-
-wartremoverErrors ++= Warts.unsafe
-Compile / console / scalacOptions :=
-  (console / scalacOptions).value.filterNot(_ contains "wartremover")

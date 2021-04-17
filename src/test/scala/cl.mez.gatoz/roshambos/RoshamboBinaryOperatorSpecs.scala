@@ -1,20 +1,17 @@
 package cl.mez.gatoz
 package roshambos
 
+import munit.FunSuite
 
-class RoshamboBinaryOperatorSpecs extends GatozTest {
+class RoshamboBinaryOperatorSpecs extends FunSuite {
   implicit val allRoshambos = Roshambo
 
-  describe("RoshamboBinaryOperator") {
+  test("RoshamboBinaryOperator has 19683 distinct operators") {
+    assertEquals(RoshamboBinaryOperator.all.size, 19683)
+  }
 
-    it("has 19683 distinct operators") {
-      RoshamboBinaryOperator.all.size shouldEqual 19683
-    }
-
-    it("has 113 distinct associative operators") {
-      RoshamboBinaryOperator.all.count(_.isAssociative) shouldEqual 113
-    }
-
+  test("RoshamboBinaryOperator has 113 distinct associative operators") {
+    assertEquals(RoshamboBinaryOperator.all.count(_.isAssociative), 113)
   }
 
 }

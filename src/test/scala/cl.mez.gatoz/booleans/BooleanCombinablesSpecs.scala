@@ -1,19 +1,15 @@
 package cl.mez.gatoz
 package booleans
 
-import org.scalatest.funspec.AnyFunSpec
-import org.scalatest.matchers.should.Matchers
+import munit.FunSuite
 
-class BooleanCombinablesSpecs extends GatozTest {
+class BooleanCombinablesSpecs extends FunSuite {
 
-  describe("BooleanCombinables") {
-    it("has eight associative binary operations") {
-      BooleanBinaryOperator.all.foreach { f =>
-        println(s"${f.toString} ${f.isAssociative(Booleans).toString}")
-      }
-      BooleanBinaryOperator.all.filter( _.isAssociative(Booleans)).size shouldEqual 8
+  test("BooleanCombinables has eight associative binary operations") {
+    BooleanBinaryOperator.all.foreach { f =>
+      println(s"${f.toString} ${f.isAssociative(Booleans).toString}")
     }
-
+    assertEquals(BooleanBinaryOperator.all.filter( _.isAssociative(Booleans)).size, 8)
   }
 
 }

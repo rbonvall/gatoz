@@ -12,6 +12,6 @@ object Correspondance {
     def comesFrom(u: U): T = g(u)
   }
 
-  def between[T, U](implicit c: Correspondance[T, U]) = c
+  def between[T, U](using c: Correspondance[T, U]) = c
 
 }

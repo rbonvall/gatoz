@@ -3,7 +3,7 @@ import Combinable.ops._
 
 package object evidence {
   /** Get the numeric instance for N. */
-  private def num[N](implicit instance: Numeric[N]): Numeric[N] = instance
+  private def num[N](using instance: Numeric[N]): Numeric[N] = instance
 
   /* Combinables */
 

@@ -10,7 +10,7 @@ object Combinable {
     def combine(x: T, y: T): T = f(x, y)
   }
 
-  def of[T: Combinable] = implicitly[Combinable[T]]
+  def of[T: Combinable] = summon[Combinable[T]]
 
   object ops {
     implicit class CombinableOps[T: Combinable](val x: T) {

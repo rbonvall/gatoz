@@ -15,6 +15,6 @@ object Equality {
 
     }
 
-  def of[T: Equality] = implicitly[Equality[T]]
+  def of[T: Equality] = summon[Equality[T]]
 
 }

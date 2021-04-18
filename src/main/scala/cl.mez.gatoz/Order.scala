@@ -15,6 +15,6 @@ object Order {
       def compare(a: T, b: T): Ordering = f(a, b)
     }
 
-  def of[T: Order] = implicitly[Order[T]]
+  def of[T: Order] = summon[Order[T]]
 
 }

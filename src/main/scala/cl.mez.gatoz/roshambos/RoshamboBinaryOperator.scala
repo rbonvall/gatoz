@@ -4,7 +4,7 @@ package roshambos
 case class RoshamboBinaryOperator( rr: Roshambo, rp: Roshambo, rs: Roshambo
                                  , pr: Roshambo, pp: Roshambo, ps: Roshambo
                                  , sr: Roshambo, sp: Roshambo, ss: Roshambo
-                                 ) extends BinaryOperator[Roshambo] {
+                                 ) extends BinaryOperator[Roshambo]:
 
   def apply(x: Roshambo, y: Roshambo): Roshambo = {
     (x, y) match {
@@ -19,9 +19,8 @@ case class RoshamboBinaryOperator( rr: Roshambo, rp: Roshambo, rs: Roshambo
       case (Scissors, Scissors) => ss
     }
   }
-}
 
-object RoshamboBinaryOperator extends AllValues[RoshamboBinaryOperator] {
+object RoshamboBinaryOperator extends AllValues[RoshamboBinaryOperator]:
   // There are 19683 of these bad boys.
   lazy val all: Set[RoshamboBinaryOperator] =
     for {
@@ -35,5 +34,4 @@ object RoshamboBinaryOperator extends AllValues[RoshamboBinaryOperator] {
       r8 <- Roshambo.all
       r9 <- Roshambo.all
     } yield RoshamboBinaryOperator(r1, r2, r3, r4, r5, r6, r7, r8, r9)
-}
 

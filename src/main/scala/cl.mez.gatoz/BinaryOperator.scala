@@ -1,6 +1,6 @@
 package cl.mez.gatoz
 
-trait BinaryOperator[T] extends ((T, T) => T) {
+trait BinaryOperator[T] extends ((T, T) => T):
   def apply(a: T, b: T): T
 
   def isAssociative(using ts: AllValues[T]): Boolean = {
@@ -15,13 +15,11 @@ trait BinaryOperator[T] extends ((T, T) => T) {
     }
   }
 
-}
 
-object BinaryOperator {
+object BinaryOperator:
 
   def of[T](f: (T, T) => T): BinaryOperator[T] =
     new BinaryOperator[T] {
       def apply(a: T, b: T) = f(a, b)
     }
 
-}

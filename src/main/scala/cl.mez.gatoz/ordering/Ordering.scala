@@ -8,6 +8,6 @@ case object Equal      extends Ordering
 case object Ascending  extends Ordering
 
 
-object Ordering extends AllValues[Ordering] {
+object Ordering extends AllValues[Ordering]:
   val all = Set(Descending, Equal, Ascending)
-}
+

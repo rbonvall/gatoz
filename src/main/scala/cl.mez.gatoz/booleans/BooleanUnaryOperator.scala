@@ -2,12 +2,11 @@ package cl.mez.gatoz
 package booleans
 
 
-case class BooleanUnaryOperator(f: Boolean, t: Boolean) extends UnaryOperator[Boolean] {
+case class BooleanUnaryOperator(f: Boolean, t: Boolean) extends UnaryOperator[Boolean]:
   def apply(p: Boolean): Boolean = if (p) t else f
-}
 
 
-object BooleanUnaryOperator {
+object BooleanUnaryOperator:
 
   //                            f(F)   f(T)
   val f0 = BooleanUnaryOperator(false, false)
@@ -24,6 +23,4 @@ object BooleanUnaryOperator {
 
   def fromFunction(func: Boolean => Boolean) =
     BooleanUnaryOperator(f = func(false), t = func(true))
-
-}
 

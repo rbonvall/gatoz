@@ -1,7 +1,7 @@
 package cl.mez.gatoz
 import Combinable.ops._
 
-package object evidence {
+package object evidence:
   /** Get the numeric instance for N. */
   private def num[N](using instance: Numeric[N]): Numeric[N] = instance
 
@@ -94,4 +94,3 @@ package object evidence {
         t => consumer(f(t))
     }
 
-}

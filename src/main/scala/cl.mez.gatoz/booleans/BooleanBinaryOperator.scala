@@ -6,7 +6,7 @@ case class BooleanBinaryOperator( ff: Boolean
                                 , ft: Boolean
                                 , tf: Boolean
                                 , tt: Boolean
-                                ) extends BinaryOperator[Boolean] {
+                                ) extends BinaryOperator[Boolean]:
 
   def apply(p: Boolean, q: Boolean): Boolean = {
     if      (p && q) tt
@@ -15,9 +15,8 @@ case class BooleanBinaryOperator( ff: Boolean
     else             ff
   }
 
-}
 
-object BooleanBinaryOperator extends AllValues[BooleanBinaryOperator] {
+object BooleanBinaryOperator extends AllValues[BooleanBinaryOperator]:
 
   //                             F x F  F x T  T x F  T x T
   val f0 = BooleanBinaryOperator(false, false, false, false)
@@ -65,4 +64,3 @@ object BooleanBinaryOperator extends AllValues[BooleanBinaryOperator] {
                          , tf = f(true,  false)
                          , tt = f(true,  true ))
 
-}

@@ -1,13 +1,11 @@
 package cl.mez.gatoz
 
-trait Equality[T] {
-
+trait Equality[T]:
   def eq (a: T, b: T): Boolean
   def neq(a: T, b: T): Boolean = !eq(a, b)
 
-}
 
-object Equality {
+object Equality:
 
   def from[T](f: (T, T) => Boolean): Equality[T] =
     new Equality[T] {
@@ -17,4 +15,3 @@ object Equality {
 
   def of[T: Equality] = summon[Equality[T]]
 
-}

@@ -1,6 +1,6 @@
 package cl.mez.gatoz
 
-trait AllValues[T] {
+trait AllValues[T]:
 
   def all: Set[T]
 
@@ -15,4 +15,3 @@ trait AllValues[T] {
     r <- all
   } yield (p, q, r)
 
-}

@@ -8,7 +8,6 @@ case object Rock     extends Roshambo
 case object Paper    extends Roshambo
 case object Scissors extends Roshambo
 
-object Roshambo extends AllValues[Roshambo] {
+object Roshambo extends AllValues[Roshambo]:
   val all = Set(Rock, Paper, Scissors)
-}
 

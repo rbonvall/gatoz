@@ -5,7 +5,7 @@ package ordering
 case class OrderingUnaryOperator( d: Ordering
                                 , e: Ordering
                                 , a: Ordering
-                                ) extends UnaryOperator[Ordering] {
+                                ) extends UnaryOperator[Ordering]:
 
   def apply(o: Ordering): Ordering = o match {
     case Descending => d
@@ -13,10 +13,8 @@ case class OrderingUnaryOperator( d: Ordering
     case Ascending  => a
   }
 
-}
 
-
-object OrderingUnaryOperator {
+object OrderingUnaryOperator:
   private val D = Descending
   private val E = Equal
   private val A = Ascending
@@ -69,7 +67,4 @@ object OrderingUnaryOperator {
     OrderingUnaryOperator( d = func(Descending)
                          , e = func(Equal)
                          , a = func(Ascending))
-
-}
-
 

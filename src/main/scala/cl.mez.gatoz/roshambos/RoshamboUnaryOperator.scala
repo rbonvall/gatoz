@@ -1,16 +1,16 @@
 package cl.mez.gatoz
 package roshambos
 
-case class RoshamboUnaryOperator(r: Roshambo, p: Roshambo, s: Roshambo) extends UnaryOperator[Roshambo] {
+case class RoshamboUnaryOperator(r: Roshambo, p: Roshambo, s: Roshambo) extends UnaryOperator[Roshambo]:
   def apply(x: Roshambo): Roshambo =
     x match {
       case Rock     => r
       case Paper    => p
       case Scissors => s
     }
-}
 
-object RoshamboUnaryOperator extends AllValues[RoshamboUnaryOperator] {
+
+object RoshamboUnaryOperator extends AllValues[RoshamboUnaryOperator]:
 
   def all: Set[RoshamboUnaryOperator] =
     for {
@@ -19,4 +19,3 @@ object RoshamboUnaryOperator extends AllValues[RoshamboUnaryOperator] {
       fs <- Roshambo.all
     } yield RoshamboUnaryOperator(fr, fp, fs)
 
-}

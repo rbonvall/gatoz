@@ -56,7 +56,7 @@ package object evidence:
 
   def numbersAreCombinableFromNothingWithPlusAndZero[N: Numeric]: CombinableFromNothing[N] = {
     CombinableFromNothing.from(num[N].zero)(numbersAreCombinableWithPlus[N].combine)
-  }
+ }
 
   def numbersAreCombinableFromNothingWithTimesAndOne[N: Numeric]: CombinableFromNothing[N] = {
     CombinableFromNothing.from(num[N].one)(numbersAreCombinableWithTimes[N].combine)

@@ -8,16 +8,16 @@ case class OrderingUnaryOperator( d: Ordering
                                 ) extends UnaryOperator[Ordering]:
 
   def apply(o: Ordering): Ordering = o match {
-    case Descending => d
-    case Equal      => e
-    case Ascending  => a
+    case Ordering.Descending => d
+    case Ordering.Equal      => e
+    case Ordering.Ascending  => a
   }
 
 
 object OrderingUnaryOperator:
-  private val D = Descending
-  private val E = Equal
-  private val A = Ascending
+  private val D = Ordering.Descending
+  private val E = Ordering.Equal
+  private val A = Ordering.Ascending
 
   val fDDD = OrderingUnaryOperator(D, D, D)
   val fDDE = OrderingUnaryOperator(D, D, E)
@@ -64,7 +64,7 @@ object OrderingUnaryOperator:
   )
 
   def fromFunction(func: Ordering => Ordering) =
-    OrderingUnaryOperator( d = func(Descending)
-                         , e = func(Equal)
-                         , a = func(Ascending))
+    OrderingUnaryOperator( d = func(D)
+                         , e = func(E)
+                         , a = func(A))
 

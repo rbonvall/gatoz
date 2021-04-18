@@ -4,9 +4,9 @@ package roshambos
 case class RoshamboUnaryOperator(r: Roshambo, p: Roshambo, s: Roshambo) extends UnaryOperator[Roshambo]:
   def apply(x: Roshambo): Roshambo =
     x match {
-      case Rock     => r
-      case Paper    => p
-      case Scissors => s
+      case Roshambo.Rock     => r
+      case Roshambo.Paper    => p
+      case Roshambo.Scissors => s
     }
 
 

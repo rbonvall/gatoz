@@ -8,15 +8,15 @@ case class RoshamboBinaryOperator( rr: Roshambo, rp: Roshambo, rs: Roshambo
 
   def apply(x: Roshambo, y: Roshambo): Roshambo = {
     (x, y) match {
-      case (Rock,     Rock)     => rr
-      case (Rock,     Paper)    => rp
-      case (Rock,     Scissors) => rs
-      case (Paper,    Rock)     => pr
-      case (Paper,    Paper)    => pp
-      case (Paper,    Scissors) => ps
-      case (Scissors, Rock)     => sr
-      case (Scissors, Paper)    => sp
-      case (Scissors, Scissors) => ss
+      case (Roshambo.Rock,     Roshambo.Rock)     => rr
+      case (Roshambo.Rock,     Roshambo.Paper)    => rp
+      case (Roshambo.Rock,     Roshambo.Scissors) => rs
+      case (Roshambo.Paper,    Roshambo.Rock)     => pr
+      case (Roshambo.Paper,    Roshambo.Paper)    => pp
+      case (Roshambo.Paper,    Roshambo.Scissors) => ps
+      case (Roshambo.Scissors, Roshambo.Rock)     => sr
+      case (Roshambo.Scissors, Roshambo.Paper)    => sp
+      case (Roshambo.Scissors, Roshambo.Scissors) => ss
     }
   }
 

@@ -12,11 +12,9 @@ object Combinable {
 
   def of[T: Combinable] = summon[Combinable[T]]
 
-  object ops {
-    implicit class CombinableOps[T: Combinable](val x: T) {
-      def |+|(y: T) = Combinable.of[T].combine(x, y)
-    }
-  }
+  object ops:
+    extension [T: Combinable](x: T)
+      def |+| (y: T) = Combinable.of[T].combine(x, y)
 
 }
 

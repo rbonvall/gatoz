@@ -67,10 +67,9 @@ package object evidence:
 
   val optionIsProducer: Producer[Option] =
     new Producer[Option] {
-      def post[X, Y](optionX: Option[X], f: X => Y): Option[Y] = optionX match {
+      def post[X, Y](optionX: Option[X], f: X => Y): Option[Y] = optionX match
         case Some(x) => Some(f(x))
         case None    => None
-      }
     }
 
   val seqIsProducer: Producer[Seq] =

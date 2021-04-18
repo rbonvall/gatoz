@@ -6,8 +6,8 @@ case class RoshamboBinaryOperator( rr: Roshambo, rp: Roshambo, rs: Roshambo
                                  , sr: Roshambo, sp: Roshambo, ss: Roshambo
                                  ) extends BinaryOperator[Roshambo]:
 
-  def apply(x: Roshambo, y: Roshambo): Roshambo = {
-    (x, y) match {
+  def apply(x: Roshambo, y: Roshambo): Roshambo =
+    (x, y) match
       case (Roshambo.Rock,     Roshambo.Rock)     => rr
       case (Roshambo.Rock,     Roshambo.Paper)    => rp
       case (Roshambo.Rock,     Roshambo.Scissors) => rs
@@ -17,8 +17,7 @@ case class RoshamboBinaryOperator( rr: Roshambo, rp: Roshambo, rs: Roshambo
       case (Roshambo.Scissors, Roshambo.Rock)     => sr
       case (Roshambo.Scissors, Roshambo.Paper)    => sp
       case (Roshambo.Scissors, Roshambo.Scissors) => ss
-    }
-  }
+
 
 object RoshamboBinaryOperator extends AllValues[RoshamboBinaryOperator]:
   // There are 19683 of these bad boys.

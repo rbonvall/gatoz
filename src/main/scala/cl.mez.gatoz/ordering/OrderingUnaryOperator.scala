@@ -7,11 +7,10 @@ case class OrderingUnaryOperator( d: Ordering
                                 , a: Ordering
                                 ) extends UnaryOperator[Ordering]:
 
-  def apply(o: Ordering): Ordering = o match {
+  def apply(o: Ordering): Ordering = o match
     case Ordering.Descending => d
     case Ordering.Equal      => e
     case Ordering.Ascending  => a
-  }
 
 
 object OrderingUnaryOperator:

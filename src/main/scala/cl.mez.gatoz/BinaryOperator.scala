@@ -19,7 +19,6 @@ trait BinaryOperator[T] extends ((T, T) => T):
 object BinaryOperator:
 
   def of[T](f: (T, T) => T): BinaryOperator[T] =
-    new BinaryOperator[T] {
+    new BinaryOperator[T]:
       def apply(a: T, b: T) = f(a, b)
-    }
 

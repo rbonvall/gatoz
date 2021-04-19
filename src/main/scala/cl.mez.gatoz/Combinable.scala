@@ -6,9 +6,9 @@ trait Combinable[T]:
 
 object Combinable:
 
-  def from[T](f: (T, T) => T): Combinable[T] = new Combinable[T] {
-    def combine(x: T, y: T): T = f(x, y)
-  }
+  def from[T](f: (T, T) => T): Combinable[T] =
+    new Combinable[T]:
+      def combine(x: T, y: T): T = f(x, y)
 
   def of[T: Combinable] = summon[Combinable[T]]
 

@@ -9,9 +9,8 @@ trait Order[T]:
 object Order:
 
   def from[T](f: (T, T) => Ordering): Order[T] =
-    new Order[T] {
+    new Order[T]:
       def compare(a: T, b: T): Ordering = f(a, b)
-    }
 
   def of[T: Order] = summon[Order[T]]
 

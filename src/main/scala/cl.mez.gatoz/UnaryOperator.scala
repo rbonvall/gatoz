@@ -7,7 +7,6 @@ trait UnaryOperator[T]:
 object UnaryOperator:
 
   def of[T](f: T => T): UnaryOperator[T] =
-    new UnaryOperator[T] {
+    new UnaryOperator[T]:
       def apply(a: T) = f(a)
-    }
 

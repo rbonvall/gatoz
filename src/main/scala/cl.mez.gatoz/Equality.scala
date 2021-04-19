@@ -8,10 +8,8 @@ trait Equality[T]:
 object Equality:
 
   def from[T](f: (T, T) => Boolean): Equality[T] =
-    new Equality[T] {
+    new Equality[T]:
       def eq(a: T, b: T): Boolean = f(a, b)
-
-    }
 
   def of[T: Equality] = summon[Equality[T]]
 

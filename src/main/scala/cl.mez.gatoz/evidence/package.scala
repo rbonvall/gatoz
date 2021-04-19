@@ -1,5 +1,5 @@
 package cl.mez.gatoz
-import Combinable.ops._
+import Combinable.ops.*
 
 /** Get the numeric instance for N. */
 private def num[N](using instance: Numeric[N]): Numeric[N] = instance

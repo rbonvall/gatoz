@@ -4,7 +4,7 @@ package roshambos
 import munit.FunSuite
 
 class RoshamboBinaryOperatorSpecs extends FunSuite:
-  given allRoshambos: AllValues[Roshambo] = Roshambo
+  given AllValues[Roshambo] = Roshambo
 
   test("RoshamboBinaryOperator has 19683 distinct operators") {
     assertEquals(RoshamboBinaryOperator.all.size, 19683)

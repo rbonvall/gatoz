@@ -8,13 +8,13 @@ object UnitCombinables extends AllValues[Combinable[Unit]] {
   val all: Set[Combinable[Unit]] = Set(only)
 
   def allAssociativeOperators = UnitBinaryOperator.all.filter(
-    _.isAssociative(Units)
+    _.isAssociative(using Units)
   )
 
   val allAssociativeOperatorsWithNeutralElement = for {
     f <- allAssociativeOperators
     p <- Units.all
-    if f.hasNeutralElement(p)(Units)
+    if f.hasNeutralElement(p)(using Units)
   } yield (f, p)
 
 }

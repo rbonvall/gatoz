@@ -1,8 +1,6 @@
 package cl.mez.gatoz
 import Combinable.ops.*
 
-/** Get the numeric instance for N. */
-private def num[N](using instance: Numeric[N]): Numeric[N] = instance
 
 /* Combinables */
 
@@ -16,16 +14,16 @@ val boolIsCombinableWithOr: Combinable[Boolean] =
   Combinable from { _ || _ }
 
 def numbersAreCombinableWithPlus[N: Numeric]: Combinable[N] =
-  Combinable from num[N].plus
+  Combinable from summon[Numeric[N]].plus
 
 def numbersAreCombinableWithTimes[N: Numeric]: Combinable[N] =
-  Combinable from num[N].times
+  Combinable from summon[Numeric[N]].times
 
 def orderedsAreCombinableWithMax[T: Ordering]: Combinable[T] =
-  Combinable from Ordering[T].max
+  Combinable from summon[Ordering[T]].max
 
 def orderedsAreCombinableWithMin[T: Ordering]: Combinable[T] =
-  Combinable from Ordering[T].min
+  Combinable from summon[Ordering[T]].min
 
 def sequencesAreCombinableWithConcatenation[T]: Combinable[Seq[T]] =
   Combinable from { _ ++ _ }
@@ -54,11 +52,11 @@ def mapsWithCombinableValuesAreCombinableByMergingAndCombining[T, U: Combinable]
 /* Combinables from nothing */
 
 def numbersAreCombinableFromNothingWithPlusAndZero[N: Numeric]: CombinableFromNothing[N] = {
-  CombinableFromNothing.from(num[N].zero)(numbersAreCombinableWithPlus[N].combine)
+  CombinableFromNothing.from(summon[Numeric[N]].zero)(numbersAreCombinableWithPlus[N].combine)
 }
 
 def numbersAreCombinableFromNothingWithTimesAndOne[N: Numeric]: CombinableFromNothing[N] = {
-  CombinableFromNothing.from(num[N].one)(numbersAreCombinableWithTimes[N].combine)
+  CombinableFromNothing.from(summon[Numeric[N]].one)(numbersAreCombinableWithTimes[N].combine)
 }
 
 

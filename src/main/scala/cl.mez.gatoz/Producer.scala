@@ -6,6 +6,10 @@ trait Producer[P[_]]:
   def post[Output, After](producer: P[Output], transform: Output => After): P[After]
 
 
-object Producer
-  /* TODO: figure out the type for the evidence factory. */
+object Producer:
+  def of[P[_]: Producer] = summon[Producer[P]]
 
+
+extension [P[_]: Producer, O](p: P[O])
+  def post[A](f: O => A) =
+    Producer.of[P].post(p, f)

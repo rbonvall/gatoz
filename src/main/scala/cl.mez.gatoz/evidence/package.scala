@@ -61,21 +61,19 @@ def numbersAreCombinableFromNothingWithTimesAndOne[N: Numeric]: CombinableFromNo
 
 /* Producers */
 
-val optionIsProducer: Producer[Option] =
-  new Producer[Option]:
-    def post[X, Y](optionX: Option[X], f: X => Y): Option[Y] = optionX match
-      case Some(x) => Some(f(x))
-      case None    => None
+given Producer[Option] with
+  def post[X, Y](optionX: Option[X], f: X => Y): Option[Y] =
+    optionX match
+    case Some(x) => Some(f(x))
+    case None    => None
 
-val seqIsProducer: Producer[Seq] =
-  new Producer[Seq]:
-    def post[X, Y](xs: Seq[X], f: X => Y): Seq[Y] =
-      xs.map(f)
+given Producer[Seq] with
+  def post[X, Y](xs: Seq[X], f: X => Y): Seq[Y] =
+    xs.map(f)
 
-def functionIsProducer[T]: Producer[[U] =>> Function[T, U]] =
-  new Producer[[U] =>> Function[T, U]]:
-    def post[Out, A](producer: Function[T, Out], f: Out => A): Function[T, A] =
-      t => f(producer(t))
+given [T]: Producer[ [U] =>> Function[T, U] ] with
+  def post[Out, A](producer: Function[T, Out], f: Out => A): Function[T, A] =
+    t => f(producer(t))
 
 
 /* Consumers */

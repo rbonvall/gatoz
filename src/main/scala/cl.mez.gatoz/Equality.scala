@@ -2,7 +2,6 @@ package cl.mez.gatoz
 
 trait Equality[T]:
   def eq (a: T, b: T): Boolean
-  def neq(a: T, b: T): Boolean = !eq(a, b)
 
 
 object Equality:
@@ -13,3 +12,7 @@ object Equality:
 
   def of[T: Equality] = summon[Equality[T]]
 
+
+extension [T: Equality](a: T)
+  def === (b: T) = Equality.of[T].eq(a, b)
+  def !== (b: T) = !Equality.of[T].eq(a, b)
